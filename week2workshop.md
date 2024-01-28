@@ -3,6 +3,9 @@ DSEWEEK2
 CHOO
 2024-01-28
 
+- [R Markdown](#r-markdown)
+- [Including Plots](#including-plots)
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax
