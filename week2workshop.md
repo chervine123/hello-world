@@ -4,6 +4,8 @@ CHOO
 2024-01-28
 
 - [Read in data](#read-in-data)
+- [Statistic on returns](#statistic-on-returns)
+- [S&P Prices](#sp-prices)
 
 ## Read in data
 
@@ -17,3 +19,52 @@ str(df)
     ##  $ SPY_returns: num  0.04804 -0.01076 -0.03264 0.00774 -0.00264 ...
     ##  $ SPY_vol    : num  88.1 87.1 84.3 84.9 84.7 ...
     ##  $ date       : Date, format: "2001-01-03" "2001-01-04" ...
+
+## Statistic on returns
+
+``` r
+sum(df$SPY_returns)*100 
+```
+
+    ## [1] 218.3304
+
+``` r
+mean(df$SPY_returns) *100 
+```
+
+    ## [1] 0.03765616
+
+``` r
+sd(df$SPY_returns)*100
+```
+
+    ## [1] 1.221943
+
+- The cumulative returns of the S&P index during this period is 218.33%.
+
+- The average daily returns of the S&P index during this period is
+  0.04%.
+
+- The standard deviation of the daily returns of the S&P index during
+  this period is 1.22%.
+
+## S&P Prices
+
+``` r
+library(tidyverse)
+ggplot(data = df, aes(x=date, y=SPY_prices)) + geom_line()
+```
+
+![](week2workshop_files/figure-gfm/unnamed-chunk-3-1.png)<!-- --> \##S&P
+Yearly Returns
+
+``` r
+df %>%
+  mutate(year = year(date)) %>% 
+  filter(year <= 2023) %>%
+  group_by(year) %>%
+  summarize(yr_return = sum(SPY_returns)*100) %>%
+  ggplot(aes(x=year, y=yr_return)) + geom_col()
+```
+
+![](week2workshop_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
