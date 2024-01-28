@@ -6,6 +6,7 @@ CHOO
 - [Read in data](#read-in-data)
 - [Statistic on returns](#statistic-on-returns)
 - [S&P Prices](#sp-prices)
+- [S&P Yearly Returns](#sp-yearly-returns)
 
 ## Read in data
 
@@ -55,8 +56,9 @@ library(tidyverse)
 ggplot(data = df, aes(x=date, y=SPY_prices)) + geom_line()
 ```
 
-![](week2workshop_files/figure-gfm/unnamed-chunk-3-1.png)<!-- --> \##S&P
-Yearly Returns
+![](week2workshop_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+## S&P Yearly Returns
 
 ``` r
 df %>%

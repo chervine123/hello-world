@@ -39,7 +39,8 @@ sd(df$SPY_returns)*100
 library(tidyverse)
 ggplot(data = df, aes(x=date, y=SPY_prices)) + geom_line()
 ```
-##S&P Yearly Returns 
+
+## S&P Yearly Returns 
 ```{r}
 df %>%
   mutate(year = year(date)) %>% 
